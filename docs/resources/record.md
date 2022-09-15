@@ -14,7 +14,7 @@ Provides a Cloudflare record resource.
 # Add a record to the domain
 resource "cloudflare_record" "foobar" {
   zone_id = var.cloudflare_zone_id
-  name    = "terraform"
+  name    = "example"
   value   = "192.168.0.11"
   type    = "A"
   ttl     = 3600
@@ -29,7 +29,7 @@ resource "cloudflare_record" "_sip_tls" {
   data {
     service  = "_sip"
     proto    = "_tls"
-    name     = "terraform-srv"
+    name     = "example-srv"
     priority = 0
     weight   = 0
     port     = 443
