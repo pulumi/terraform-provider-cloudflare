@@ -1,4 +1,32 @@
-## 3.25.0 (Unreleased)
+## 3.26.0 (Unreleased)
+
+## 3.25.0 (October 5th, 2022)
+
+NOTES:
+
+* resource/device_posture_rule: update device posture rule to reflect new linux posture fields ([#1842](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1842))
+
+ENHANCEMENTS:
+
+* resource/cloudflare_account_member: permit setting status in terraform schema if desired ([#1920](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1920))
+* resource/cloudflare_email_routing_catch_all: switch to a dedicated scheme to allow type = "drop" ([#1947](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1947))
+* resource/cloudflare_load_balancer: Add support for adaptive_routing, location_strategy, random_steering, and zero_downtime_failover ([#1941](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1941))
+* resource/cloudflare_load_balancer: update internal method signatures to match upstream library ([#1932](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1932))
+* resource/cloudflare_load_balancer_monitor: update internal method signatures to match upstream library ([#1932](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1932))
+* resource/cloudflare_load_balancer_pool: update internal method signatures to match upstream library ([#1932](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1932))
+
+BUG FIXES:
+
+* provider: allow individual setting of x-auth-service-key ([#1923](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1923))
+* provider: fix versioning injection during release builds ([#1935](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1935))
+* resource/cloudflare_byo_ip_prefix: fix `Import` to set `account_id` ([#1930](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1930))
+* resource/cloudflare_record: update Read method to pull from remote API instead of local configuration which is empty during `Import` ([#1942](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1942))
+* resource/cloudflare_zone_settings_override: Fix array manipulation bug related to single zone settings ([#1925](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1925))
+
+DEPENDENCIES:
+
+* provider: bumps actions/stale from 5 to 6 ([#1922](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1922))
+* provider: bumps dependabot/fetch-metadata from 1.3.3 to 1.3.4 ([#1945](https://github.com/cloudflare/terraform-provider-cloudflare/issues/1945))
 
 ## 3.24.0 (September 21st, 2022)
 
