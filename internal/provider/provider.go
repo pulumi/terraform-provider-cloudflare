@@ -70,6 +70,10 @@ func init() {
 			desc += fmt.Sprintf(" Must provide at least one of %s.", strings.Join(atLeastOneOfs, ", "))
 		}
 
+		if s.ForceNew {
+			desc += " **Modifying this attribute will force creation of a new resource.**"
+		}
+
 		return strings.TrimSpace(desc)
 	}
 }
@@ -178,6 +182,7 @@ func New(version string) func() *schema.Provider {
 				"cloudflare_api_token_permission_groups": dataSourceCloudflareApiTokenPermissionGroups(),
 				"cloudflare_devices":                     dataSourceCloudflareDevices(),
 				"cloudflare_ip_ranges":                   dataSourceCloudflareIPRanges(),
+				"cloudflare_load_balancer_pools":         dataSourceCloudflareLoadBalancerPools(),
 				"cloudflare_origin_ca_root_certificate":  dataSourceCloudflareOriginCARootCertificate(),
 				"cloudflare_record":                      dataSourceCloudflareRecord(),
 				"cloudflare_waf_groups":                  dataSourceCloudflareWAFGroups(),
@@ -214,6 +219,7 @@ func New(version string) func() *schema.Provider {
 				"cloudflare_custom_hostname":                        resourceCloudflareCustomHostname(),
 				"cloudflare_custom_pages":                           resourceCloudflareCustomPages(),
 				"cloudflare_custom_ssl":                             resourceCloudflareCustomSsl(),
+				"cloudflare_device_settings_policy":                 resourceCloudflareDeviceSettingsPolicy(),
 				"cloudflare_device_policy_certificates":             resourceCloudflareDevicePolicyCertificates(),
 				"cloudflare_device_posture_integration":             resourceCloudflareDevicePostureIntegration(),
 				"cloudflare_device_posture_rule":                    resourceCloudflareDevicePostureRule(),
@@ -254,10 +260,12 @@ func New(version string) func() *schema.Provider {
 				"cloudflare_teams_list":                             resourceCloudflareTeamsList(),
 				"cloudflare_teams_location":                         resourceCloudflareTeamsLocation(),
 				"cloudflare_teams_proxy_endpoint":                   resourceCloudflareTeamsProxyEndpoint(),
+				"cloudflare_tunnel_config":                          resourceCloudflareTunnelConfig(),
 				"cloudflare_teams_rule":                             resourceCloudflareTeamsRule(),
 				"cloudflare_total_tls":                              resourceCloudflareTotalTLS(),
 				"cloudflare_tunnel_route":                           resourceCloudflareTunnelRoute(),
 				"cloudflare_tunnel_virtual_network":                 resourceCloudflareTunnelVirtualNetwork(),
+				"cloudflare_url_normalization_settings":             resourceCloudflareURLNormalizationSettings(),
 				"cloudflare_user_agent_blocking_rule":               resourceCloudflareUserAgentBlockingRules(),
 				"cloudflare_waf_group":                              resourceCloudflareWAFGroup(),
 				"cloudflare_waf_override":                           resourceCloudflareWAFOverride(),
